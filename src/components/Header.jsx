@@ -5,7 +5,6 @@ function Header() {
     return (
         <div>
             <h1>WORD GUESS GAME</h1>
-            <MusicController />
         </div>
     );
 }
