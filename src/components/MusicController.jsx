@@ -4,17 +4,19 @@ import music from "../assets/theme.mp3";
 
 
 function MusicController() {
-    const [play, {stop} ] = useSound(music);
+    const [play, {pause, isPlaying} ] = useSound(music);
     return (
-        <div>
-            <button id="music-player" onClick={ () => { play();} } > 
-                Play 
+            <button id="music-player" 
+                
+                onClick={ () => { 
+                    if (isPlaying) {
+                        pause();
+                    } else {
+                        play();
+                    }
+                }} > 
+                Play/Pause 
             </button>
-
-            <button id="pause-player" onClick={ () => { stop();} } > 
-                Pause 
-            </button>
-        </div>
     );
 }
 
