@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <StartButton />
       <MusicController />
+      <StartButton />
+      
 
 
 

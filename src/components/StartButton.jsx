@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import WholeGame from './WholeGame'
 
 
-function StartButton( { }) {
+function StartButton( {}) {
     const [ isOpened, setIsOpened ] = useState(false);
 
     function toggle() {
