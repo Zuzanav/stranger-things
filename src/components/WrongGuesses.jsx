@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessedLetters() {
+function WrongGuesses() {
     return (
         <div>
             <p>Wrong Letters Guessed:</p>
@@ -8,4 +8,4 @@ function GuessedLetters() {
     );
 }
 
-export default GuessedLetters
+export default WrongGuesses

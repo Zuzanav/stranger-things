@@ -22,7 +22,7 @@ function ActiveWord() {
 
     // SET UP BOARD --------------------------------------------------------------
     // loop creates x amount of underscores "_" based on amount of characters in selected word
-    for (let i=0; i<randomWord.length; i++){
+    for (let i = 0; i < randomWord.length; i++){
         activeWord[i] = "_"
     };
 

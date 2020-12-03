@@ -1,5 +1,4 @@
 import React from "react";
-import MusicController from './MusicController.jsx';
 
 function Header() {
     return (
