@@ -5,6 +5,36 @@ import WrongGuesses from './WrongGuesses';
 
 
 function WholeGame({}) {
+    // VARIABLES ----------------------------------------------------------------
+    
+    // Array with all letters of the alphabet for computer to choose from 
+    let words = ["demogorgan", "eleven", "hawkins", "spy", "waffles", 
+    "magnets", "hopper", "starcourt", "dart", "joyce", "arcade", "dustin"];
+
+    // array defined to hold the active word in play, and display on DOM
+    let activeWord = [];
+
+//--------------------------------------------------------------------------
+
+
+// GAME SET UP  =============================================================
+
+    // computer selects a random word from the array
+    let randomWord = words[Math.floor(Math.random()*words.length)]
+    console.log(randomWord);
+
+    // SET UP BOARD --------------------------------------------------------------
+    // loop creates x amount of underscores "_" based on amount of characters in selected word
+    for (let i = 0; i < randomWord.length; i++){
+        activeWord[i] = "_"
+    };
+
+    // split randomWord into its individual characters
+    let charsArray = Array.from(randomWord)
+
+    console.log(activeWord);
+    console.log("words characters: " + charsArray);
+
     // Set the state of correct and incorrect guesses to empty array
     //const [correctGuesses, setCorrectGuesses] = useState([]);
     //const [wrongGuesses, setWrongGuesses] = useState([]);
@@ -18,12 +48,21 @@ function WholeGame({}) {
             alert("Please select a letter only");
         // if key pressed is letter A-Z, continue game 
         } else {
-            let letterGuessed = event.keyCode;
-            return letterGuessed;
+            let userGuess = event.key;
+
+            // correctGuess is true or false if it is included in the character array of the active word
+            var correctGuess = charsArray.includes(userGuess); 
+            //console.log("CORRECT GUESS: ", correctGuess);
+            console.log("user guess", userGuess);
+
+            if (correctGuess === false) {
+                alert("wrong letter");
+            }
         }
+        
       };
 
-      
+
     
 
     // Add Event Listener 
@@ -40,7 +79,7 @@ function WholeGame({}) {
     return(
         <div id="main-body">
             <GuessesLeft />
-            <ActiveWord />
+            <ActiveWord activeword={activeWord} /> 
             <WrongGuesses />
         </div>
     );
