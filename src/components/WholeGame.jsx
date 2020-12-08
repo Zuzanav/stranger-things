@@ -37,7 +37,7 @@ function WholeGame({}) {
 
     // Set the state of correct and incorrect guesses to empty array
     //const [correctGuesses, setCorrectGuesses] = useState([]);
-    //const [wrongGuesses, setWrongGuesses] = useState([]);
+    const [wrongGuesses, setWrongGuesses] = useState([]);
 
     // This function performs an action after a key was pressed 
     const handleKeyDown = (event) => {
@@ -56,7 +56,7 @@ function WholeGame({}) {
             console.log("user guess", userGuess);
 
             if (correctGuess === false) {
-                alert("wrong letter");
+                setWrongGuesses(currentGuess => [...currentGuess, userGuess] );
             }
         }
         
