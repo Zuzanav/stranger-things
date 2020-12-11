@@ -30,13 +30,13 @@ function WholeGame({}) {
     };
 
     // split randomWord into its individual characters
-    let charsArray = Array.from(randomWord)
+    let lettersArray = Array.from(randomWord)
 
     console.log(activeWord);
-    console.log("words characters: " + charsArray);
+    console.log("words characters: " + lettersArray);
 
     // Set the state of correct and incorrect guesses to empty array
-    //const [correctGuesses, setCorrectGuesses] = useState([]);
+    const [correctGuesses, setCorrectGuesses] = useState([]);
     const [wrongGuesses, setWrongGuesses] = useState([]);
 
     // This function performs an action after a key was pressed 
@@ -50,20 +50,19 @@ function WholeGame({}) {
         } else {
             let userGuess = event.key;
 
-            // correctGuess is true or false if it is included in the character array of the active word
-            var correctGuess = charsArray.includes(userGuess); 
-            //console.log("CORRECT GUESS: ", correctGuess);
+            // correctGuess is true if that letter is included in the letter array of the active word
+            var correctGuess = lettersArray.includes(userGuess); 
             console.log("user guess", userGuess);
 
-            if (correctGuess === false) {
+            if ( correctGuess === false ) {
                 setWrongGuesses(currentGuess => [...currentGuess, userGuess] );
+            } else if ( correctGuess === true ) {
+                console.log("TRUE! CORRECT GUESS!")
             }
         }
         
       };
 
-
-    
 
     // Add Event Listener 
     useEffect(() => {
@@ -80,7 +79,7 @@ function WholeGame({}) {
         <div id="main-body">
             <GuessesLeft />
             <ActiveWord activeword={activeWord} /> 
-            <WrongGuesses />
+            <WrongGuesses wrongGuesses={wrongGuesses} />
         </div>
     );
 }

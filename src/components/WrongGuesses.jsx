@@ -1,9 +1,11 @@
 import React from "react";
 
-function WrongGuesses() {
+const WrongGuesses = ({ wrongGuesses }) => {
+
     return (
         <div>
-            <p>Wrong Letters Guessed:</p>
+            <p>Wrong Guesses: </p>
+            <p> { wrongGuesses } </p>
         </div>
     );
 }
